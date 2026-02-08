@@ -29,10 +29,10 @@ public class Client {
 				String line;
 				try {
 					while ((line = socketReader.readLine()) != null) {
-						System.out.println("Server: " + line);
 						if ("exit".equalsIgnoreCase(line.trim())) {
 							break;
 						}
+                        execLine(line);
 					}
 				} catch (IOException e) {
 					System.out.println("Connection closed.");
@@ -53,4 +53,7 @@ public class Client {
 			System.err.println("Client error: " + e.getMessage());
 		}
 	}
+    public static void execLine(String line) {
+        System.out.println("Server: " + line);
+    }
 }

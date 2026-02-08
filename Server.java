@@ -27,10 +27,11 @@ public class Server {
 					String line;
 					try {
 						while ((line = socketReader.readLine()) != null) {
-							System.out.println("Client: " + line);
+							
 							if ("exit".equalsIgnoreCase(line.trim())) {
 								break;
 							}
+                            execLine(line);
 						}
 					} catch (IOException e) {
 						System.out.println("Connection closed.");
@@ -52,4 +53,8 @@ public class Server {
 			System.err.println("Server error: " + e.getMessage());
 		}
 	}
+
+    public static void execLine(String line) {
+        System.out.println("Server: " + line);
+    }
 }
